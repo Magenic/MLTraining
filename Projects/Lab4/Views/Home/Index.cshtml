@@ -1,0 +1,39 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="pageRow">
+        <label>What do you want to do?</label>
+    </div>
+    <div class="pageRow">
+        <input class="enteredText" type="text" id="enteredText" value="@Model.TextToSearch"/>
+    </div>
+    <div class="pageRow">
+        <button id="getIntent">Submit</button>
+    </div>
+    <div class="pageRow">
+        <label>I think you want to:</label>
+    </div>
+    <div class="pageRow">
+        <textarea rows="15" cols="80" class="luisResponse">@Model.ResultJson</textarea>
+    </div>
+    <div class="pageRow">
+        <label>Should this be a "none" intent?</label>
+    </div>
+    <div class="pageRow">
+        <button onclick="location.href='@Url.Action("Incorrect", "Home", new { checkText = Model.TextToSearch, resultJson = Model.ResultJson })'">Yes</button>
+    </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $("#getIntent").click(function () {
+            var txtVal = encodeURI($("#enteredText").val());
+
+            var link = "@Url.Action( "GetIntent", "Home", new { checkText = "jsTextVal" })";
+            link = link.replace("jsTextVal", txtVal);
+
+            window.location = link;
+        });
+    </script>
+}
