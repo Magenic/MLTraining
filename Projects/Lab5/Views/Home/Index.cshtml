@@ -1,0 +1,54 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="pageRow">
+        <label>Is this 2020 average math SAT an anomoly?</label>
+    </div>
+    <div class="pageRow">
+        <input class="enteredText" type="number" id="mathSat" min="1" value="@Model.MathSat" />
+    </div>
+    <div class="pageRow">
+        <button id="checkSat">Check Math SAT</button>
+    </div>
+    <div class="pageRow">
+        <label>Results of Last DataPoint:</label>
+    </div>
+    <div class="pageRow">
+        <textarea rows="15" cols="80" class="anomalyResponse">@Model.LastGpaResult</textarea>
+    </div>
+    <div class="pageRow">
+        <label>Are there anomolies in the historical data?</label>
+    </div>
+    <div class="pageRow">
+        <button id="checkAllExtreme">Find Snow Day Anomolies</button>
+    </div>
+    <div class="pageRow">
+        <label>Results:</label>
+    </div>
+    <div class="pageRow">
+        <textarea rows="15" cols="80" class="anomalyResponse">@Model.AllAnomoliesResult</textarea>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $("#checkSat").click(function () {
+            var txtVal = $("#mathSat").val();
+
+            var link = "@Url.Action( "Check2020Sat", "Home", new { mathSat = "jsTextVal" })";
+            link = link.replace("jsTextVal", txtVal);
+
+            window.location = link;
+        });
+
+        $("#checkAllExtreme").click(function () {
+
+            var link = "@Url.Action( "CheckAllExtremeSnowDays", "Home")";
+
+            window.location = link;
+        });
+    </script>
+}
