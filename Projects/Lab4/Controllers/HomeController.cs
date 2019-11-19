@@ -55,12 +55,12 @@ namespace Lab4.Controllers
 
         private async Task<IndexModel> GetIntentModel(string checkText)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         private async Task<IndexModel> AddToNoneUtterance(string checkText, string resultJson)
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }

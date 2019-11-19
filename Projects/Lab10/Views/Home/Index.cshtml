@@ -1,0 +1,35 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="pageRow">
+        <label>Enter year to predict</label>
+    </div>
+    <div class="pageRow">
+        <input class="enteredText" type="number" id="enteredYear" value="@Model.YearToPredict"/>
+    </div>
+    <div class="pageRow">
+        <button id="getPrediction">Submit</button>
+    </div>
+    <div class="pageRow">
+        <label>Avg Dow prediction result:</label>
+    </div>
+    <div class="pageRow">
+        <textarea rows="15" cols="80" class="modelResponse">@Model.Result</textarea>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $("#getPrediction").click(function () {
+            var txtVal = encodeURI($("#enteredYear").val());
+
+            var link = "@Url.Action( "GetPrediction", "Home", new { yearToPredict = "jsTextVal" })";
+            link = link.replace("jsTextVal", txtVal);
+
+            window.location = link;
+        });
+    </script>
+}

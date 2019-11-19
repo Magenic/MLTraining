@@ -53,12 +53,12 @@ namespace Lab5.Controllers
 
         private async Task<IndexModel> CheckLatestSat(int mathSat)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         private async Task<IndexModel> CheckAllSnowDays()
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         private List<Point> GetAverageMathSatScore()

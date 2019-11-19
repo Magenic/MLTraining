@@ -84,11 +84,12 @@ namespace Lab2.Controllers
 
         private async Task<EvaluationResult> GetEvaluationResult(string imageLocation)
         {
-
+            throw new NotImplementedException();
         }
 
         private async Task IncorrectImage(string imageLocation)
         {
+            throw new NotImplementedException();
         }
     }
 }
