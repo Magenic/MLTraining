@@ -1,0 +1,55 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">ML Image Recognition</h1>
+    <table>
+        <tr>
+            <td class="image_td">
+                <img src="~/Images/palm.jpg" />
+            </td>
+            <td class="image_td">
+                <img src="~/Images/podocarpus.jpg" />
+            </td>
+            <td class="image_td">
+                <img src="~/Images/maple.jpg" />
+            </td>
+            <td class="image_td">
+                <img src="~/Images/joshua.jpg" />
+            </td>
+        </tr>
+        <tr>
+            <td class="image_td">
+                <div class="evaluation_area">
+                    <p><b>This is a:</b></p>
+                    <p>@Html.Label(Model.FirstImageType)</p>
+                </div>
+            </td>
+            <td class="image_td">
+                <div class="evaluation_area">
+                    <p><b>This is a:</b></p>
+                    <p>@Html.Label(Model.SecondImageType)</p>
+                </div>
+            </td>
+            <td class="image_td">
+                <div class="evaluation_area">
+                    <p><b>This is a:</b></p>
+                    <p>@Html.Label(Model.ThirdImageType)</p>
+                </div>
+            </td>
+            <td class="image_td">
+                <div class="evaluation_area">
+                    <p><b>This is a:</b></p>
+                    <p>@Html.Label(Model.FourthImageType)</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="main_td" colspan="4">
+                <button onclick="location.href='@Url.Action("Evaluate", "Home")'">Evaluate Images</button>
+            </td>
+        </tr>
+    </table>
+</div>
